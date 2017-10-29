@@ -13,9 +13,19 @@ importScripts('/__/firebase/init.js');
 
  // Initialize the Firebase app in the service worker by passing in the
  // messagingSenderId.
- firebase.initializeApp({
-   'messagingSenderId': 'YOUR-SENDER-ID'
- });
+// firebase.initializeApp({
+  // 'messagingSenderId': 'YOUR-SENDER-ID'
+ //});
+
+var config = {
+    apiKey: "AIzaSyBLZIk3UVQFbxZlvZmcEHpDprpjU100TmE",
+    authDomain: "wepushserverteste.firebaseapp.com",
+    databaseURL: "https://wepushserverteste.firebaseio.com",
+    projectId: "wepushserverteste",
+    storageBucket: "",
+    messagingSenderId: "905272665345"
+  };
+  firebase.initializeApp(config);
 
  // Retrieve an instance of Firebase Messaging so that it can handle background
  // messages.
