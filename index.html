@@ -88,6 +88,9 @@ limitations under the License.
     messagingSenderId: "905272665345"
   };
   firebase.initializeApp(config);
+  
+  
+  
 </script>
   
 <script>
@@ -129,10 +132,28 @@ limitations under the License.
   // - the user clicks on an app notification created by a sevice worker
   //   `messaging.setBackgroundMessageHandler` handler.
   messaging.onMessage(function(payload) {
-    console.log("Message received. ", payload);
+    //console.log("Message received. ", payload);
     // [START_EXCLUDE]
     // Update the UI to include the received message.
-    appendMessage(payload);
+    //appendMessage(payload);
+    
+    if (payload.notification.title == undefined) payload.notification.title = "";
+    if (payload.notification.body == undefined) payload.notification.body = "";
+        var notification = new Notification(payload.notification.title, {
+            icon: payload.notification.icon, body: payload.notification.body, sound: payload.notification.sound,actions: [
+          {action: 'explore', title: 'Explore this new world',
+            icon: 'images/checkmark.png'},
+          {action: 'close', title: 'Close notification',
+            icon: 'images/xmark.png'},
+        ]
+        });
+        if (payload.notification.click_action != "" && payload.notification.click_action != undefined) {
+            notification.onclick = function () {
+                window.open(payload.notification.click_action);
+                notification.close();
+            };
+        }
+    })
     // [END_EXCLUDE]
   });
   // [END receive_message]
