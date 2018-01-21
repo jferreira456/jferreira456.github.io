@@ -148,7 +148,10 @@ limitations under the License.
             icon: 'images/xmark.png'},
         ]
         });
-        if (payload.notification.click_action != "" && payload.notification.click_action != undefined) {
+        
+    console.log('aaaaa',notification);
+    
+    if (payload.notification.click_action != "" && payload.notification.click_action != undefined) {
             notification.onclick = function () {
                 window.open(payload.notification.click_action);
                 notification.close();
