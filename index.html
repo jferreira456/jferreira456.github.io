@@ -143,7 +143,7 @@ limitations under the License.
        
     
     
-    /*var notification = new Notification("lalalalalala", {
+    var notification = new Notification("lalalalalala", {
             icon: payload.notification.icon, body: payload.notification.body, sound: payload.notification.sound,actions: [
           {action: 'explore', title: 'Explore this new world',
             icon: 'images/checkmark.png'},
@@ -161,16 +161,9 @@ limitations under the License.
                 notification.close();
             };
         }
-    */
     
-    self.registration.showNotification("AAA",{
-            icon: payload.notification.icon, body: payload.notification.body, sound: payload.notification.sound,actions: [
-          {action: 'explore', title: 'Explore this new world',
-            icon: 'images/checkmark.png'},
-          {action: 'close', title: 'Close notification',
-            icon: 'images/xmark.png'},
-        ]
-        });
+    
+  
     
     
     // [END_EXCLUDE]
