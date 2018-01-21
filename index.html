@@ -140,7 +140,10 @@ limitations under the License.
     console.log('CENAS ', payload.notification.title);
     if (payload.notification.title == undefined) payload.notification.title = "";
     if (payload.notification.body == undefined) payload.notification.body = "";
-        var notification = new Notification("lalalalalala", {
+       
+    
+    
+    /*var notification = new Notification("lalalalalala", {
             icon: payload.notification.icon, body: payload.notification.body, sound: payload.notification.sound,actions: [
           {action: 'explore', title: 'Explore this new world',
             icon: 'images/checkmark.png'},
@@ -151,12 +154,24 @@ limitations under the License.
         
     console.log('aaaaa',notification);
     
+    
     if (payload.notification.click_action != "" && payload.notification.click_action != undefined) {
             notification.onclick = function () {
                 window.open(payload.notification.click_action);
                 notification.close();
             };
         }
+    */
+    
+    self.registration.showNotification("AAA",{
+            icon: payload.notification.icon, body: payload.notification.body, sound: payload.notification.sound,actions: [
+          {action: 'explore', title: 'Explore this new world',
+            icon: 'images/checkmark.png'},
+          {action: 'close', title: 'Close notification',
+            icon: 'images/xmark.png'},
+        ]
+        });
+    
     
     // [END_EXCLUDE]
   });
